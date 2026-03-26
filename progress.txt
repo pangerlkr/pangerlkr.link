@@ -1,0 +1,5 @@
+- Optimized ScrollyCanvas for Retina/High-DPI displays by handling devicePixelRatio.
+- Added error handling to image preloading in ScrollyCanvas to ensure reliable loading.
+- Refactored 3D tilt logic into a reusable TiltCard component for consistency across Homepage, Gallery, and Contact pages.
+----------
+ralph-done-ro5ow

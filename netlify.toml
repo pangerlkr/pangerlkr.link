@@ -1,0 +1,43 @@
+# netlify.toml — Deployment configuration for Panger Lkr Personal Website
+
+[build]
+  command   = "npm run build"
+  publish   = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Next.js essentials plugin
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Security & performance headers for all routes + fingerprint masking
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options           = "DENY"
+    X-Content-Type-Options    = "nosniff"
+    Referrer-Policy           = "strict-origin-when-cross-origin"
+    Permissions-Policy        = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    # ── Stack Masking ─────────────────────────────────────────────────────────
+    # Overrides Next.js header & throws off Wappalyzer / BuiltWith
+    X-Powered-By              = "PangerLkr/1.0"
+    X-Built-By                = "Panger Lkr — pangerlkr.link"
+    X-Generator               = "PangerLkr Framework 1.0"
+
+# Cache-Control: long-lived cache for static assets
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

@@ -1,0 +1,50 @@
+# robots.txt — Panger Lkr Personal Website
+# https://pangerlkr.link/robots.txt
+
+# ─── Allow All Web Crawlers ───────────────────────────────────────────────────
+User-agent: *
+Allow: /
+
+# ─── Block Internal Next.js Paths (not public content) ───────────────────────
+Disallow: /_next/static/
+Disallow: /api/
+
+# ─── AI Search Crawlers (explicitly allow for AiEO) ──────────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# ─── Sitemap ──────────────────────────────────────────────────────────────────
+Sitemap: https://pangerlkr.link/sitemap.xml

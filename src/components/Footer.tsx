@@ -25,6 +25,8 @@ const FacebookIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
 );
 
+import Magnetic from '@/components/Magnetic';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [time, setTime] = useState('');
@@ -57,10 +59,12 @@ export default function Footer() {
             LET&apos;S TALK
           </h2>
           
-          <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-semibold tracking-wide hover:scale-105 transition-transform duration-300">
-            Start a project
-            <ArrowUpRight className="w-5 h-5" />
-          </Link>
+          <Magnetic strength={0.2}>
+            <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-semibold tracking-wide hover:scale-105 transition-transform duration-300">
+              Start a project
+              <ArrowUpRight className="w-5 h-5" />
+            </Link>
+          </Magnetic>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mt-16">
             <a href="mailto:contact@pangerlkr.link" className="text-white/60 hover:text-white transition-colors flex items-center gap-3">
@@ -86,21 +90,31 @@ export default function Footer() {
           </div>
 
           <div className="flex gap-5">
-            <a href="https://github.com/pangerlkr" target="_blank" rel="noopener noreferrer" title="GitHub" className="text-white/50 hover:text-white hover:-translate-y-1 transition-all duration-300">
-              <GithubIcon />
-            </a>
-            <a href="https://linkedin.com/in/pangerlkr" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="text-white/50 hover:text-white hover:-translate-y-1 transition-all duration-300">
-              <LinkedinIcon />
-            </a>
-            <a href="https://x.com/panger__lkr" target="_blank" rel="noopener noreferrer" title="X / Twitter" className="text-white/50 hover:text-white hover:-translate-y-1 transition-all duration-300">
-              <TwitterIcon />
-            </a>
-            <a href="https://instagram.com/panger__lkr" target="_blank" rel="noopener noreferrer" title="Instagram" className="text-white/50 hover:text-white hover:-translate-y-1 transition-all duration-300">
-              <InstagramIcon />
-            </a>
-            <a href="https://facebook.com/lkr.panger" target="_blank" rel="noopener noreferrer" title="Facebook" className="text-white/50 hover:text-white hover:-translate-y-1 transition-all duration-300">
-              <FacebookIcon />
-            </a>
+            <Magnetic strength={0.4}>
+              <a href="https://github.com/pangerlkr" target="_blank" rel="noopener noreferrer" title="GitHub" className="text-white/50 hover:text-white hover:-translate-y-1 transition-all duration-300">
+                <GithubIcon />
+              </a>
+            </Magnetic>
+            <Magnetic strength={0.4}>
+              <a href="https://linkedin.com/in/pangerlkr" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="text-white/50 hover:text-white hover:-translate-y-1 transition-all duration-300">
+                <LinkedinIcon />
+              </a>
+            </Magnetic>
+            <Magnetic strength={0.4}>
+              <a href="https://x.com/panger__lkr" target="_blank" rel="noopener noreferrer" title="X / Twitter" className="text-white/50 hover:text-white hover:-translate-y-1 transition-all duration-300">
+                <TwitterIcon />
+              </a>
+            </Magnetic>
+            <Magnetic strength={0.4}>
+              <a href="https://instagram.com/panger__lkr" target="_blank" rel="noopener noreferrer" title="Instagram" className="text-white/50 hover:text-white hover:-translate-y-1 transition-all duration-300">
+                <InstagramIcon />
+              </a>
+            </Magnetic>
+            <Magnetic strength={0.4}>
+              <a href="https://facebook.com/lkr.panger" target="_blank" rel="noopener noreferrer" title="Facebook" className="text-white/50 hover:text-white hover:-translate-y-1 transition-all duration-300">
+                <FacebookIcon />
+              </a>
+            </Magnetic>
           </div>
 
           <div className="flex flex-col md:items-end gap-1 text-center md:text-right">

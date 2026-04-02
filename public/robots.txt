@@ -4,47 +4,105 @@
 # ─── Allow All Web Crawlers ───────────────────────────────────────────────────
 User-agent: *
 Allow: /
-
-# ─── Block Internal Next.js Paths (not public content) ───────────────────────
 Disallow: /_next/static/
 Disallow: /api/
 
-# ─── AI Search Crawlers (explicitly allow for AiEO) ──────────────────────────
+# ─── Google ───────────────────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# ─── Bing & Microsoft ─────────────────────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# ─── Apple ────────────────────────────────────────────────────────────────────
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ─── OpenAI / ChatGPT ─────────────────────────────────────────────────────────
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: Google-Extended
+User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: PerplexityBot
-Allow: /
-
+# ─── Anthropic / Claude ───────────────────────────────────────────────────────
 User-agent: ClaudeBot
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: Bytespider
+User-agent: Claude-Web
 Allow: /
 
-User-agent: CCBot
+# ─── Google Gemini / AI ───────────────────────────────────────────────────────
+User-agent: Google-CloudVertexBot
 Allow: /
 
-User-agent: Omgilibot
+# ─── Perplexity ───────────────────────────────────────────────────────────────
+User-agent: PerplexityBot
 Allow: /
 
+# ─── Meta / Facebook AI ───────────────────────────────────────────────────────
 User-agent: FacebookBot
 Allow: /
 
+User-agent: meta-externalagent
+Allow: /
+
+# ─── ByteDance / TikTok ───────────────────────────────────────────────────────
+User-agent: Bytespider
+Allow: /
+
+# ─── Common Crawl / Training Data ─────────────────────────────────────────────
+User-agent: CCBot
+Allow: /
+
+# ─── LinkedIn ─────────────────────────────────────────────────────────────────
 User-agent: LinkedInBot
 Allow: /
 
+# ─── Twitter / X ──────────────────────────────────────────────────────────────
 User-agent: Twitterbot
 Allow: /
 
-# ─── Sitemap ──────────────────────────────────────────────────────────────────
+# ─── Cohere ───────────────────────────────────────────────────────────────────
+User-agent: cohere-ai
+Allow: /
+
+# ─── You.com ──────────────────────────────────────────────────────────────────
+User-agent: YouBot
+Allow: /
+
+# ─── Brave AI Search ──────────────────────────────────────────────────────────
+User-agent: BraveBot
+Allow: /
+
+# ─── Omgili / Research ────────────────────────────────────────────────────────
+User-agent: Omgilibot
+Allow: /
+
+# ─── Sitemaps ─────────────────────────────────────────────────────────────────
 Sitemap: https://pangerlkr.link/sitemap.xml

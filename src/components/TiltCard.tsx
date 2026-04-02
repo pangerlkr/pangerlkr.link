@@ -51,7 +51,7 @@ export default function TiltCard({
   };
 
   return (
-    <div style={{ perspective }}>
+    <div style={{ perspective }} className="relative">
       <motion.div
         ref={ref}
         onMouseMove={handleMouseMove}
@@ -63,18 +63,22 @@ export default function TiltCard({
         }}
         className={`relative group ${className}`}
       >
-        {/* Liquid glow overlay */}
-        <div
-          className={`absolute inset-0 rounded-[inherit] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay bg-gradient-to-tr ${glowFrom} ${glowTo}`}
-        />
-
-        {/* Ambient glow behind card */}
+        {/* Ambient glow behind card - Using -z-1 to ensure it is behind everything */}
         <div
           className={`absolute inset-0 rounded-[inherit] bg-gradient-to-bl ${glowFrom} ${glowTo} opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none -z-10`}
           style={{ transform: `translateZ(-${translateZ}px) scale(0.9)` }}
         />
 
-        <div style={{ transform: `translateZ(${translateZ}px)`, transformStyle: 'preserve-3d' }} className="h-full w-full">
+        {/* Liquid glow overlay - Using -z-0 (or no z-index) so children can sit above it */}
+        <div
+          className={`absolute inset-0 rounded-[inherit] z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-overlay bg-gradient-to-tr ${glowFrom} ${glowTo}`}
+        />
+
+        {/* Content container - Setting high relative Z and explicit transform z */}
+        <div 
+          style={{ transform: `translateZ(${translateZ}px)`, transformStyle: 'preserve-3d' }} 
+          className="relative h-full w-full z-10"
+        >
           {children}
         </div>
       </motion.div>

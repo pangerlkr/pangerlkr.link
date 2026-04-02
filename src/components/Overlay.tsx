@@ -7,6 +7,8 @@ interface Props {
   scrollYProgress: MotionValue<number>;
 }
 
+import ScrambleText from './ScrambleText';
+
 export default function Overlay({ scrollYProgress }: Props) {
   // Section 1: 0% to 20%
   const opacity1 = useTransform(scrollYProgress, [0, 0.15, 0.2], [1, 1, 0]);
@@ -32,7 +34,7 @@ export default function Overlay({ scrollYProgress }: Props) {
         className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-6"
       >
         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white text-center leading-[0.9]">
-          Panger Lkr
+          <ScrambleText text="Panger Lkr" />
         </h1>
         <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium tracking-[0.2em] text-center uppercase">
           Cybersecurity Professional <br className="sm:hidden" />& Entrepreneur
@@ -46,7 +48,7 @@ export default function Overlay({ scrollYProgress }: Props) {
       >
         <Link href="/projects" className="inline-block group hover:scale-[1.02] transition-transform duration-300 max-w-full">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-2xl leading-[1.1] text-white mix-blend-difference group-hover:text-emerald-400 transition-colors">
-            Securing the digital frontier.
+            <ScrambleText text="Securing the digital frontier." />
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-emerald-400/50 group-hover:bg-emerald-400 mt-6 rounded-full transition-colors" />
           <p className="text-white/60 mt-4 text-lg sm:text-xl tracking-wide font-light group-hover:text-white/90 transition-colors">
@@ -62,7 +64,7 @@ export default function Overlay({ scrollYProgress }: Props) {
       >
         <Link href="/projects" className="inline-flex flex-col items-end group hover:scale-[1.02] transition-transform duration-300 max-w-full">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-2xl leading-[1.1] text-white mix-blend-difference group-hover:text-blue-400 transition-colors">
-            Bridging innovation and defense.
+            <ScrambleText text="Bridging innovation and defense." />
           </h2>
           <div className="w-16 sm:w-20 h-1 bg-blue-400/50 group-hover:bg-blue-400 mt-6 rounded-full self-end transition-colors" />
           <p className="text-white/60 mt-4 text-lg sm:text-xl tracking-wide font-light group-hover:text-white/90 transition-colors">

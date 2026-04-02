@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useScroll, useTransform, useMotionValueEvent, MotionValue } from 'framer-motion';
 import Overlay from './Overlay';
 
-const FRAME_COUNT = 120; // 000 to 119
+const FRAME_COUNT = 83; // 00 to 82
 
 export default function ScrollyCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,22 +26,51 @@ export default function ScrollyCanvas() {
     let loadedCount = 0;
     const loadedImages: HTMLImageElement[] = new Array(FRAME_COUNT);
 
-    const checkAllLoaded = () => {
+    // Track a subset of frames (every 5th frame) to quickly resolve loading screen
+    let primaryCount = 0;
+    const primaryTarget = Math.ceil(FRAME_COUNT / 5);
+
+    const checkLoaded = (isPrimary: boolean) => {
       loadedCount++;
+      if (isPrimary) {
+        primaryCount++;
+        // Unlock preloader as soon as the priority frames are loaded
+        if (primaryCount === primaryTarget) {
+          imagesRef.current = loadedImages;
+          setImagesLoaded(true);
+        }
+      }
+      
       if (loadedCount === FRAME_COUNT) {
         imagesRef.current = loadedImages;
-        setImagesLoaded(true);
       }
     };
 
-    for (let i = 0; i < FRAME_COUNT; i++) {
+    const loadFrame = (i: number, isPrimary: boolean) => {
       const img = new Image();
-      const paddedIndex = i.toString().padStart(3, '0');
-      img.src = `/sequence/frame_${paddedIndex}_delay-0.066s.png`;
-      img.onload = checkAllLoaded;
-      img.onerror = checkAllLoaded; // Ensure we still progress if a frame fails
+      const paddedIndex = i.toString().padStart(2, '0');
+      
+      // Native Next.js Image Optimization to reduce payload from ~50MB to ~5MB
+      img.src = `/_next/image?url=${encodeURIComponent('/sequence/frame_' + paddedIndex + '_delay-0.066s.png')}&w=1080&q=75`;
+      
+      img.onload = () => checkLoaded(isPrimary);
+      img.onerror = () => checkLoaded(isPrimary);
       loadedImages[i] = img;
+    };
+
+    // 1. Kick off primary frames first (0, 5, 10...)
+    for (let i = 0; i < FRAME_COUNT; i += 5) {
+      loadFrame(i, true);
     }
+    
+    // 2. Load the rest of the frames slightly delayed so they don't block
+    setTimeout(() => {
+      for (let i = 0; i < FRAME_COUNT; i++) {
+        if (i % 5 !== 0) {
+          loadFrame(i, false);
+        }
+      }
+    }, 150);
   }, []);
 
   const drawFrame = (index: number) => {
@@ -112,7 +141,7 @@ export default function ScrollyCanvas() {
 
   return (
     <div ref={containerRef} className="relative w-full h-[500vh] bg-background">
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+      <div className="sticky top-0 h-[100dvh] w-full flex items-center justify-center overflow-hidden">
         {!imagesLoaded && (
           <div className="absolute inset-0 flex items-center justify-center z-50 bg-[#121212]">
             <div className="flex flex-col items-center gap-4">

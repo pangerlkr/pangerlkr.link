@@ -1,6 +1,22 @@
 # Panger Lkr — Personal Portfolio Website
 
-> High-end scrollytelling personal portfolio built with **Next.js 14**, **Framer Motion**, and **HTML5 Canvas** — featuring cinematic scroll-linked image sequences, 3D interactive cards, and a dark premium aesthetic.
+> High-end scrollytelling personal portfolio of **Pangerkumzuk Longkumer (Panger Lkr)** — built with **Next.js 14**, **Framer Motion**, and **HTML5 Canvas**. Features cinematic scroll-linked image sequences, 3D interactive cards, and a dark premium aesthetic.
+
+🌐 **Live:** [pangerlkr.link](https://pangerlkr.link)
+
+---
+
+## 👤 About
+
+**Pangerkumzuk Longkumer**, known as **Panger Lkr**, is a cybersecurity professional and entrepreneur from Nagaland, India.
+
+He operates with a dual lens — an **offensive mindset** to understand how systems fail, and **defensive execution** to build resilience against real-world threats. His work spans cybersecurity operations, advisory, and venture-building, with a strong focus on practical security.
+
+- Founder of **NEXUSCIPHERGUARD India** — a cybersecurity initiative delivering awareness programs, consulting, and vulnerability assessment
+- Acquired **Aegis Mind Technologies (Bangalore)** to expand technical and development capabilities
+- Cybersecurity Advisor at **MMB Cyber School** (Non-Profit Organisation)
+
+> *"Security is not a tool you install. It is a mindset you enforce."*
 
 ---
 
@@ -19,14 +35,14 @@
 
 ## 🛠 Tech Stack
 
-| Tool | Purpose |
-|------|---------|
-| [Next.js 14](https://nextjs.org/) | App Router, SSR, routing |
-| [Framer Motion](https://www.framer.com/motion/) | Scroll animations, spring physics, 3D transforms |
-| [Tailwind CSS 3](https://tailwindcss.com/) | Utility-first styling |
-| [Lucide React](https://lucide.dev/) | Icon set |
-| [TypeScript](https://www.typescriptlang.org/) | Type safety |
-| HTML5 Canvas | Image sequence rendering |
+| Tool | Version | Purpose |
+|------|---------|---------|
+| [Next.js](https://nextjs.org/) | 14 | App Router, SSR, routing |
+| [Framer Motion](https://www.framer.com/motion/) | 12 | Scroll animations, spring physics, 3D transforms |
+| [Tailwind CSS](https://tailwindcss.com/) | 3 | Utility-first styling |
+| [Lucide React](https://lucide.dev/) | 1 | Icon set |
+| [TypeScript](https://www.typescriptlang.org/) | 5 | Type safety |
+| HTML5 Canvas | — | Image sequence rendering |
 
 ---
 
@@ -41,8 +57,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/pangerlkr/personal-website.git
-cd personal-website
+git clone https://github.com/pangerlkr/pangerlkr.link.git
+cd pangerlkr.link
 
 # Install dependencies
 npm install
@@ -112,4 +128,4 @@ public/
 
 ## 📄 License
 
-MIT © 2026 Panger Lkr
+ISC © 2026 Pangerkumzuk Longkumer (Panger Lkr)

@@ -1,9 +1,8 @@
 # Panger Lkr — Personal Portfolio Website
 
-> High-end scrollytelling personal portfolio of **Pangerkumzuk Longkumer (Panger Lkr)** — built with **Next.js 14**, **Framer Motion**, and **HTML5 Canvas**. Features cinematic scroll-linked image sequences, 3D interactive cards, and a dark premium aesthetic.
+> High-end scrollytelling personal portfolio of **Pangerkumzuk Longkumer (Panger Lkr)** — built with **Next.js 14**, **Framer Motion**, and **HTML5 Canvas**. Features cinematic scroll-linked image sequences, 3D interactive cards, a custom cursor, and a dark premium aesthetic.
 
 🌐 **Live:** [pangerlkr.link](https://pangerlkr.link)
-
 
 ---
 
@@ -23,13 +22,19 @@ He operates with a dual lens — an **offensive mindset** to understand how syst
 
 ## ✨ Features
 
-- **Scrollytelling Hero** — Scroll-driven canvas image sequence with parallax overlay text sections
-- **3D Interactive Cards** — Mouse-tracking perspective tilt with liquid sheen effects (Selected Work & Projects page)
+- **Scrollytelling Hero** — Scroll-driven canvas image sequence (120+ frames) with parallax overlay text sections
+- **3D Interactive Cards** — Mouse-tracking perspective tilt with liquid sheen and ambient glow effects
+- **Custom Cursor** — Branded cursor that responds to hover states across the site
+- **Preloader** — Cinematic loading screen on first visit
+- **Page Transitions** — Smooth animated transitions between routes
+- **About Page** — Background, expertise, and philosophy in a dedicated `/about` route
+- **Projects Gallery** — `/projects` route with staggered entrance, 3D hover, and individual project detail views
+- **Lab** — Experimental `/lab` section featuring an interactive terminal and Matrix rain effect
 - **Contact Page** — Functional contact form (mailto) with 3D tilting info cards
-- **Projects Gallery** — Dedicated `/projects` route with staggered entrance + 3D hover
-- **Responsive Navigation** — Glassmorphism nav with active route indicator
+- **Responsive Navigation** — Glassmorphism nav with active route indicator and magnetic CTA button
 - **Footer** — Live IST clock, all social links, email & phone contact shortcuts
-- **SEO Ready** — Proper `<title>`, meta description, semantic headings, `robots.txt`
+- **Easter Egg** — Hidden interactive element for curious visitors
+- **SEO & Sitemap Ready** — Proper `<title>`, meta description, semantic headings, `robots.txt`, auto-generated `sitemap.ts`, and `llms.txt`
 - **Netlify Ready** — `netlify.toml` with security headers, cache policy & Next.js plugin
 
 ---
@@ -39,11 +44,11 @@ He operates with a dual lens — an **offensive mindset** to understand how syst
 | Tool | Version | Purpose |
 |------|---------|---------|
 | [Next.js](https://nextjs.org/) | 14 | App Router, SSR, routing |
-| [Framer Motion](https://www.framer.com/motion/) | 12 | Scroll animations, spring physics, 3D transforms |
+| [Framer Motion](https://www.framer.com/motion/) | 12 | Scroll animations, spring physics, 3D transforms, page transitions |
 | [Tailwind CSS](https://tailwindcss.com/) | 3 | Utility-first styling |
 | [Lucide React](https://lucide.dev/) | 1 | Icon set |
 | [TypeScript](https://www.typescriptlang.org/) | 5 | Type safety |
-| HTML5 Canvas | — | Image sequence rendering |
+| HTML5 Canvas | — | Scroll-linked image sequence rendering |
 
 ---
 
@@ -84,22 +89,49 @@ npm run start
 ```
 src/
 ├── app/
-│   ├── layout.tsx        # Root layout (Navigation + Footer)
-│   ├── page.tsx          # Home — ScrollyCanvas + Selected Work
+│   ├── layout.tsx             # Root layout (Navigation, Footer, Preloader, CustomCursor)
+│   ├── page.tsx               # Home — ScrollyCanvas + Selected Work
+│   ├── not-found.tsx          # 404 page
+│   ├── sitemap.ts             # Auto-generated XML sitemap
+│   ├── about/
+│   │   └── page.tsx           # About page
 │   ├── contact/
-│   │   └── page.tsx      # Contact page with 3D form & info cards
+│   │   └── page.tsx           # Contact page with 3D form & info cards
+│   ├── lab/
+│   │   └── page.tsx           # Lab — Terminal, MatrixRain, experiments
 │   └── projects/
-│       └── page.tsx      # Full projects gallery
+│       └── page.tsx           # Full projects gallery
 ├── components/
-│   ├── Navigation.tsx    # Sticky glassmorphism nav
-│   ├── ScrollyCanvas.tsx # Scroll-linked canvas image sequence
-│   ├── Overlay.tsx       # Parallax overlay text (Section 1-3)
-│   ├── Projects.tsx      # Selected Work section (home)
-│   └── Footer.tsx        # Footer with socials, IST clock, CTA
+│   ├── Navigation.tsx         # Sticky glassmorphism nav with magnetic CTA
+│   ├── ScrollyCanvas.tsx      # Scroll-linked canvas image sequence
+│   ├── Overlay.tsx            # Parallax overlay text sections (Sections 1–3)
+│   ├── Projects.tsx           # Selected Work section (home)
+│   ├── ProjectsClient.tsx     # Client-side projects grid with animations
+│   ├── ProjectDetailClient.tsx# Individual project detail view
+│   ├── TiltCard.tsx           # Reusable 3D tilt card with sheen & glow
+│   ├── Footer.tsx             # Footer — live IST clock, socials, CTA
+│   ├── Preloader.tsx          # Cinematic loading screen
+│   ├── PageTransition.tsx     # Animated route transition wrapper
+│   ├── CustomCursor.tsx       # Branded custom cursor
+│   ├── Terminal.tsx           # Interactive terminal (Lab page)
+│   ├── MatrixRain.tsx         # Matrix rain canvas animation
+│   ├── ScrambleText.tsx       # Text scramble / glitch animation
+│   ├── Magnetic.tsx           # Magnetic repulsion button effect
+│   ├── Atmosphere.tsx         # Ambient background atmosphere layer
+│   ├── Noise.tsx              # Grain/noise texture overlay
+│   ├── DigitalFingerprint.tsx # Animated digital fingerprint visual
+│   └── EasterEgg.tsx          # Hidden easter egg interaction
+├── data/
+│   └── projects.ts            # Centralised project data
 public/
-├── project_1.png         # Project thumbnail images
+├── panger-lkr.png             # Profile image
+├── project_1.png              # Project thumbnail images
 ├── project_2.png
-└── project_3.png
+├── project_3.png
+├── project_4.png
+├── sequence/                  # Canvas frame sequence (120+ images)
+├── robots.txt                 # Crawler rules
+└── llms.txt                   # LLM-readable site context
 ```
 
 ---

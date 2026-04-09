@@ -3,6 +3,7 @@
 > Definitive reference for developers and collaborators working on the portfolio of **Pangerkumzuk Longkumer (Panger Lkr)**.
 
 ---
+![Panger Lkr](https://github.com/user-attachments/assets/79854f28-7c4e-4222-98a4-32998fcd6eae)
 
 ## 👤 Identity
 
@@ -12,6 +13,15 @@
 | **Brand Name** | Panger Lkr |
 | **Handle** | `pangerlkr` |
 | **Website** | https://pangerlkr.link |
+
+--
+## Portfolio -
+| Field | Value |
+|---|---|
+| **Portfolio** | [Panger Lkr - Portfolio.pdf](https://github.com/user-attachments/files/26597841/Panger.Lkr.-.Portfolio.pdf) |
+
+
+---
 
 **Usage Rule:**
 - UI / Branding → **Panger Lkr**
